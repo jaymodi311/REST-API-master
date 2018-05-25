@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="lab10" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>mis283.model.Site</class>
+        <class>mis283.model.Article</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:./lab10" />
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
+            <property name="javax.persistence.schema-generation.scripts.create-target" value="sampleCreate.ddl"/>
+            <property name="javax.persistence.schema-generation.scripts.drop-target" value="sampleDrop.ddl"/>
+            <property name="dialect" value="org.hibernate.dialect.H2Dialect" />
+            <property name="hibernate.show_sql" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>

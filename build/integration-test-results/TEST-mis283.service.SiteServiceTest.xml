@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="mis283.service.SiteServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-11-11T00:53:53" hostname="MD017093T931" time="0.087">
+  <properties/>
+  <testcase name="update" classname="mis283.service.SiteServiceTest" time="0.08"/>
+  <testcase name="retrieve" classname="mis283.service.SiteServiceTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

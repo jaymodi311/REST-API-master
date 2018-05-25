@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="mis283.repository.ArticleRepositoryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2017-11-11T00:49:19" hostname="MD017093T931" time="0.369">
+  <properties/>
+  <testcase name="retrieveAll" classname="mis283.repository.ArticleRepositoryTest" time="0.18"/>
+  <testcase name="retrieveByTitle" classname="mis283.repository.ArticleRepositoryTest" time="0.09"/>
+  <testcase name="retrieve" classname="mis283.repository.ArticleRepositoryTest" time="0.025"/>
+  <testcase name="save" classname="mis283.repository.ArticleRepositoryTest" time="0.052"/>
+  <testcase name="retrieveBySite" classname="mis283.repository.ArticleRepositoryTest" time="0.012"/>
+  <system-out><![CDATA[Hibernate: drop table Article if exists
+Hibernate: drop table Site if exists
+Hibernate: drop sequence if exists hibernate_sequence
+Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+Hibernate: create table Article (id integer not null, description varchar(255), subtitle varchar(255), title varchar(255) not null, site_id integer, primary key (id))
+Hibernate: create table Site (id integer not null, name varchar(255) not null, url varchar(255) not null, primary key (id))
+Hibernate: create index idx_article_title on Article (title)
+Hibernate: create index idx_article_site on Article (site_id)
+Hibernate: alter table Site add constraint unq_site_name unique (name)
+Hibernate: alter table Article add constraint FK1oubsm1d43bovv7d2tatcyjyv foreign key (site_id) references Site on delete cascade
+Hibernate: call next value for hibernate_sequence
+Hibernate: insert into Site (name, url, id) values (?, ?, ?)
+Hibernate: call next value for hibernate_sequence
+Hibernate: insert into Article (description, site_id, subtitle, title, id) values (?, ?, ?, ?, ?)
+Hibernate: select article0_.id as id1_0_, article0_.description as descript2_0_, article0_.site_id as site_id5_0_, article0_.subtitle as subtitle3_0_, article0_.title as title4_0_ from Article article0_
+Hibernate: select site0_.id as id1_1_0_, site0_.name as name2_1_0_, site0_.url as url3_1_0_ from Site site0_ where site0_.id=?
+Hibernate: select article0_.id as id1_0_, article0_.description as descript2_0_, article0_.site_id as site_id5_0_, article0_.subtitle as subtitle3_0_, article0_.title as title4_0_ from Article article0_ where article0_.title=?
+Hibernate: select site0_.id as id1_1_0_, site0_.name as name2_1_0_, site0_.url as url3_1_0_ from Site site0_ where site0_.id=?
+Hibernate: select article0_.id as id1_0_0_, article0_.description as descript2_0_0_, article0_.site_id as site_id5_0_0_, article0_.subtitle as subtitle3_0_0_, article0_.title as title4_0_0_, site1_.id as id1_1_1_, site1_.name as name2_1_1_, site1_.url as url3_1_1_ from Article article0_ left outer join Site site1_ on article0_.site_id=site1_.id where article0_.id=?
+Hibernate: select article0_.id as id1_0_1_, article0_.description as descript2_0_1_, article0_.site_id as site_id5_0_1_, article0_.subtitle as subtitle3_0_1_, article0_.title as title4_0_1_, site1_.id as id1_1_0_, site1_.name as name2_1_0_, site1_.url as url3_1_0_ from Article article0_ left outer join Site site1_ on article0_.site_id=site1_.id where article0_.id=?
+Hibernate: update Article set description=?, site_id=?, subtitle=?, title=? where id=?
+Hibernate: update Article set description=?, site_id=?, subtitle=?, title=? where id=?
+Hibernate: select article0_.id as id1_0_, article0_.description as descript2_0_, article0_.site_id as site_id5_0_, article0_.subtitle as subtitle3_0_, article0_.title as title4_0_ from Article article0_ where article0_.site_id=? order by article0_.title
+Hibernate: select site0_.id as id1_1_0_, site0_.name as name2_1_0_, site0_.url as url3_1_0_ from Site site0_ where site0_.id=?
+Hibernate: select article0_.id as id1_0_0_, article0_.description as descript2_0_0_, article0_.site_id as site_id5_0_0_, article0_.subtitle as subtitle3_0_0_, article0_.title as title4_0_0_, site1_.id as id1_1_1_, site1_.name as name2_1_1_, site1_.url as url3_1_1_ from Article article0_ left outer join Site site1_ on article0_.site_id=site1_.id where article0_.id=?
+Hibernate: delete from Article where id=?
+Hibernate: delete from Site where id=?
+Hibernate: select article0_.id as id1_0_0_, article0_.description as descript2_0_0_, article0_.site_id as site_id5_0_0_, article0_.subtitle as subtitle3_0_0_, article0_.title as title4_0_0_, site1_.id as id1_1_1_, site1_.name as name2_1_1_, site1_.url as url3_1_1_ from Article article0_ left outer join Site site1_ on article0_.site_id=site1_.id where article0_.id=?
+Hibernate: select site0_.id as id1_1_0_, site0_.name as name2_1_0_, site0_.url as url3_1_0_ from Site site0_ where site0_.id=?
+Hibernate: select site0_.id as id1_1_0_, site0_.name as name2_1_0_, site0_.url as url3_1_0_ from Site site0_ where site0_.id=?
+]]></system-out>
+  <system-err><![CDATA[Nov 10, 2017 6:49:16 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [
+	name: lab10
+	...]
+Nov 10, 2017 6:49:17 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.2.11.Final}
+Nov 10, 2017 6:49:17 PM org.hibernate.cfg.Environment <clinit>
+INFO: HHH000206: hibernate.properties not found
+Nov 10, 2017 6:49:17 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+Nov 10, 2017 6:49:17 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Nov 10, 2017 6:49:17 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [org.h2.Driver] at URL [jdbc:h2:./lab10]
+Nov 10, 2017 6:49:17 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {}
+Nov 10, 2017 6:49:17 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Nov 10, 2017 6:49:17 PM org.hibernate.engine.jdbc.connections.internal.PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Nov 10, 2017 6:49:17 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Nov 10, 2017 6:49:19 PM org.hibernate.tool.schema.internal.SchemaCreatorImpl applyImportSources
+INFO: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@8d79702'
+Nov 10, 2017 6:49:19 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@64e5bff6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Nov 10, 2017 6:49:19 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3281707b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Nov 10, 2017 6:49:19 PM org.hibernate.tool.schema.internal.SchemaCreatorImpl applyImportSources
+INFO: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@8d79702'
+Nov 10, 2017 6:49:19 PM org.hibernate.hql.internal.QueryTranslatorFactoryInitiator initiateService
+INFO: HHH000397: Using ASTQueryTranslatorFactory
+]]></system-err>
+</testsuite>
